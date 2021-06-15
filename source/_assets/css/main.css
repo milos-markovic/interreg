@@ -1,0 +1,70 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+nav a:hover{
+    border-bottom: 3px solid #FFF2BF;
+}
+
+nav a:focus{
+    border-bottom: 3px solid #ffd629;
+}
+
+nav a:visited{
+    border-bottom: 3px solid #ffd629;
+}
+
+#social_icons a:hover{
+    background: #ffd629;
+}
+
+
+#sections a:hover .border_style{
+    border: 1px dashed black;
+}
+
+#social_icons a:active{
+    background-color: #ffd629;
+}
+
+#partners .location_link:hover{
+    border-bottom: 1px dashed black;
+}
+
+#partners .site_link:hover{
+    border-bottom: 1px dashed black;
+}
+
+.selected {
+    border-bottom: 3px solid #ffd629;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    header #topImage .header{
+        width: 410px;
+    }
+    header #topImage .regNumber{
+        width: 160px;
+    }
+    header #topImage .women{
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 769px){
+    header #topImage .header{
+        width: 740px;
+    }
+    header #topImage .regNumber{
+        width: 180px;
+    }
+    header #topImage .women{
+        width: 170px;
+    }
+}
+
+
+
+
