@@ -7,7 +7,7 @@
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="/fav.ico">
+        <link rel="icon" href="/favicons.ico">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> 
         <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>

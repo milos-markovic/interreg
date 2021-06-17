@@ -1,5 +1,5 @@
 ---
-extends: _layouts.hungary
+extends: _layouts.main
 page: objectives
 language: Hu
 posts:

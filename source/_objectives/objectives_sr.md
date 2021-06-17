@@ -1,5 +1,5 @@
 ---
-extends: _layouts.serbian
+extends: _layouts.main
 page: objectives
 language: Sr
 posts:
