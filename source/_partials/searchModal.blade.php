@@ -11,7 +11,7 @@
                 <div>
                     <header class="flex items-center justify-between p-3 px-5" style="background: #ffd629;">
                         <h3 class="text-2xl">Search</h3>
-                        <a @click="searchModal = false" href="" class="text-2xl font-bold">X</a>
+                        <a @click.prevent="searchModal = false" href="" class="text-2xl font-bold">X</a>
                     </header>
                     <div class="p-6 flex items-center">
                         <input type="text" name="" placeholder="ENCHANCHED by Google" class="p-2 border flex-1 border-gray-300 h-9">

@@ -4,10 +4,10 @@ let anchers = document.querySelectorAll('#language a');
 anchers.forEach(function(el){
     el.addEventListener("click", function(e){
         e.preventDefault();
-
+        
         let lenguage = this.id;
 
-        //let hostName = window.location.host;
+        let hostName = window.location.host;
         let pathName = window.location.pathname.slice(0, -1);
 
         if(pathName.includes('-')){
@@ -19,23 +19,26 @@ anchers.forEach(function(el){
         if(lenguage === 'en'){
 
             if(pathName === '/index'){
-                path = 'http://localhost:3000';
+                path = 'http://localhost:3000/';
             }else{
-                path = 'http://localhost:3000' + pathName;
+                path = 'http://localhost:3000/' + pathName;
             }
 
         }else{
 
             if(pathName === ''){
-                path = 'http://localhost:3000/index-' + lenguage;
+                path = 'http://localhost:3000/' + lenguage;
             }else{
-                path = 'http://localhost:3000' + pathName + '-' + lenguage;
+                path = 'http://localhost:3000/' + pathName + '-' + lenguage;
             }
         }
+
 
         window.location.href = path;                    
 
     }); 
 });
+
+
 
 

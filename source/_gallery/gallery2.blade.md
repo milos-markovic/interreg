@@ -3,7 +3,9 @@ extends: _layouts.main
 section: body
 page: Gallery
 language: En
-title: Lavender planting
+title_en: Lavender planting
+title_sr: Sadnja lavande
+title_hu: Levendulaültetés 
 url: 'gallery2'
 mob_img: https://www.womentosave.org/images/gallery.svg 
 data: 'November, 2019' 
@@ -60,16 +62,27 @@ photos:
                 <div class="border-l-2 border-gray-200 p-3">
                     <div id="breadcrumb" class="mb-3 text-xs lg:text-base">
                         <ul class="flex" style="color: #555555;">
-                            <li><a href="/">Home</a></li>
+                            <li x-show="len === 'En'"><a href="/">Home</a></li>
+                            <li x-show="len === 'Sr'"><a href="/">Početna</a></li>
+                            <li x-show="len === 'Hu'"><a href="/">Főoldal</a></li>
+
                             <li class="mx-3">/</li>
-                            <li><a href="/gallery">News and gallery</a></li>
+                            <li x-show="len === 'En'"><a href="/gallery">News and gallery</a></li>
+                            <li x-show="len === 'Sr'"><a href="/gallery">Aktuelnosti i galerija</a></li>
+                            <li x-show="len === 'Hu'"><a href="/gallery">Aktualitások és galéria</a></li>
                             <li class="mx-3">/</li>
-                            <li><a href="" style="color: #b3b3b3;">{!! $page->title !!}</a></li>
+
+                            <li x-show="len === 'En'"><a href="" style="color: #b3b3b3;">{!! $page->title_en !!}</a></li>
+                            <li x-show="len === 'Sr'"><a href="" style="color: #b3b3b3;">{!! $page->title_sr !!}</a></li>
+                            <li x-show="len === 'Hu'"><a href="" style="color: #b3b3b3;">{!! $page->title_hu !!}</a></li>
                         </ul>
                     </div>
                         
                     <div class="leading-9">
-                        <h2 class="text-2xl lg:text-4xl">{{ $page->title }}</h2>
+                        <h2 x-show="len === 'En'" class="text-2xl lg:text-4xl">{{ $page->title_en }}</h2>
+                        <h2 x-show="len === 'Sr'" class="text-2xl lg:text-4xl">{{ $page->title_sr }}</h2>
+                        <h2 x-show="len === 'Hu'" class="text-2xl lg:text-4xl">{{ $page->title_hu }}</h2>
+
                         <div class="flex items-bottom">
                             <span>
                                 <i class="far fa-calendar-alt"></i>
@@ -86,17 +99,29 @@ photos:
             <div class="flex text-sm" style="color: gray;">
                 <div class="flex items-center mr-5">
                     <img src="https://www.womentosave.org/images/photo.svg" alt="" style="width: 30px; height: 30px;" />
-                    <p class="ml-3">{{ $page->photo_number }} photos</p>
+                    <p class="ml-3">{{ $page->photo_number }} 
+                        <span x-show="len === 'En'">photos</span>
+                        <span x-show="len === 'Sr'">fotografija</span>
+                        <span x-show="len === 'Hu'">fénykép</span>
+                    </p>
                 </div>
 
                 <div class="flex items-center">
                     <img src="https://www.womentosave.org/images/video.svg" alt="" style="width: 30px; height: 30px;" />
-                    <p class="ml-3">{{ $page->video_number }} videos</p>
+                    <p class="ml-3">{{ $page->video_number }} 
+                        <span x-show="len === 'En'">videos</span>
+                        <span x-show="len === 'Sr'">videa</span>
+                        <span x-show="len === 'Hu'">videó</span>
+                    </p>
                 </div>
             </div>
 
             <section id="photo galery" class="mt-20">
-                 <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">Photos ({{ $page->photo_number }})</p>
+                 <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">
+                    <span x-show="len === 'En'" class="mr-2">Photos</span> 
+                    <span x-show="len === 'Sr'" class="mr-2">Fotografije</span> 
+                    <span x-show="len === 'Hu'" class="mr-2">fénykép</span> 
+                 ({{ $page->photo_number }})</p>
             
                 <div x-data="{ imgModal : false, imgModalSrc : '', imgModalDesc : '' }">
                     <template @img-modal.window="imgModal = true; imgModalSrc = $event.detail.imgModalSrc; imgModalDesc = $event.detail.imgModalDesc;" x-if="imgModal">
@@ -135,7 +160,12 @@ photos:
             </section>
         
             <section id="video galery" class="mt-10 mb-12 lg:mb-0">
-                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">Video ({{ $page->video_number }})</p>
+                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">
+                    <span x-show="len === 'En'" class="mr-1">Videos</span> 
+                    <span x-show="len === 'Sr'" class="mr-1">Video</span> 
+                    <span x-show="len === 'Hu'" class="mr-1">Video</span> 
+                    ({{ $page->video_number }})
+                </p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 justify-items-center mb-5">
                     

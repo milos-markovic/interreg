@@ -3,7 +3,9 @@ extends: _layouts.main
 section: body
 page: Gallery
 language: En
-title: Opening conference
+title_en: Opening conference
+title_sr: Otvarajuća konferencija održana u Somboru 25.10.2019.
+title_hu: Nyitókonferencia
 url: 'gallery1'
 mob_img: https://www.womentosave.org/images/gallery.svg 
 data: '25.10.2019' 
@@ -39,16 +41,27 @@ photos:
                 <div class="border-l-2 border-gray-200 p-3">
                     <div id="breadcrumb" class="mb-3 text-xs lg:text-base">
                         <ul class="flex" style="color: #555555;">
-                            <li><a href="/">Home</a></li>
+                            <li x-show="len === 'En'"><a href="/">Home</a></li>
+                            <li x-show="len === 'Sr'"><a href="/">Početna</a></li>
+                            <li x-show="len === 'Hu'"><a href="/">Főoldal</a></li>
+
                             <li class="mx-3">/</li>
-                            <li><a href="/gallery">News and gallery</a></li>
+                            <li x-show="len === 'En'"><a href="/gallery">News and gallery</a></li>
+                            <li x-show="len === 'Sr'"><a href="/gallery">Aktuelnosti i galerija</a></li>
+                            <li x-show="len === 'Hu'"><a href="/gallery">Aktualitások és galéria</a></li>
                             <li class="mx-3">/</li>
-                            <li><a href="" style="color: #b3b3b3;">{!! $page->title !!}</a></li>
+
+                            <li x-show="len === 'En'"><a href="" style="color: #b3b3b3;">{!! $page->title_en !!}</a></li>
+                            <li x-show="len === 'Sr'"><a href="" style="color: #b3b3b3;">{!! $page->title_sr !!}</a></li>
+                            <li x-show="len === 'Hu'"><a href="" style="color: #b3b3b3;">{!! $page->title_hu !!}</a></li>
                         </ul>
                     </div>
                         
                     <div class="leading-9">
-                        <h2 class="text-2xl lg:text-4xl">{{ $page->title }}</h2>
+                        <h2 x-show="len === 'En'" class="text-2xl lg:text-4xl">{{ $page->title_en }}</h2>
+                        <h2 x-show="len === 'Sr'" class="text-2xl lg:text-4xl">{{ $page->title_sr }}</h2>
+                        <h2 x-show="len === 'Hu'" class="text-2xl lg:text-4xl">{{ $page->title_hu }}</h2>
+
                         <div class="flex items-bottom">
                             <span>
                                 <i class="far fa-calendar-alt"></i>
@@ -65,7 +78,10 @@ photos:
             <div class="flex text-sm" style="color: gray;">
                 <div class="flex items-center mr-5">
                     <img src="https://www.womentosave.org/images/photo.svg" alt="" style="width: 30px; height: 30px;" />
-                    <p class="ml-3">{{ $page->photo_number }} photos</p>
+
+                    <p x-show="len === 'En'" class="ml-3">{{ $page->photo_number }} photos</p>
+                    <p x-show="len === 'Sr'" class="ml-3">{{ $page->photo_number }} fotografija</p>
+                    <p x-show="len === 'Hu'" class="ml-3">{{ $page->photo_number }} fénykép</p>
                 </div>
 
                 <div class="flex items-center">
@@ -75,7 +91,10 @@ photos:
             </div>
 
             <section id="photo galery" class="mt-20">
-                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">Photos ({{ $page->photo_number }})</p>
+                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">
+                <span class="mr-1" x-show="len === 'En'"> Photos</span> 
+                <span class="mr-1" x-show="len === 'Sr'"> Fotografije</span> 
+                <span class="mr-1" x-show="len === 'Hu'"> Fotografije</span> ({{ $page->photo_number }})</p>
             
                 <div x-data="{ imgModal : false, imgModalSrc : '', imgModalDesc : '' }">
                     <template @img-modal.window="imgModal = true; imgModalSrc = $event.detail.      imgModalSrc; imgModalDesc = $event.detail.imgModalDesc;" x-if="imgModal">
@@ -115,7 +134,7 @@ photos:
             </section>
 
             <section id="video galery" class="mt-10 mb-16 xl:mb-0">
-                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">Videos</p>
+                <p class="yellow bg-yellow-300 p-1 pl-4 pr-20 mb-3 inline-flex" style="clip-path: polygon(0 0, 97% 0, 100% 100%, 0% 100%); background: #FFF2BF;">Video</p>
 
                 <div class="flex justify-center">
                     <iframe style="width: 480px; height: 360px;" src="https://www.youtube.com/embed/y8hTJNREpcg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0"></iframe>

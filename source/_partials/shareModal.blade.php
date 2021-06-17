@@ -11,7 +11,7 @@
             <div>
                 <header class="flex items-center justify-between p-3 px-5" style="background: #ffd629;">
                     <h3 class="text-2xl">Share</h3>
-                    <a @click="shareModal = false" href="" class="text-2xl font-bold">X</a>
+                    <a @click.prevent ="shareModal = false" href="" class="text-2xl font-bold">X</a>
                 </header>
                 <div class="p-6 flex justify-center items-center space-x-10">
                     <a href="https://www.viber.com/en/?utm_source=Partner&utm_medium=Sharebutton&utm_campaign=Defualt" target="_blank" class="w-16 h-16">

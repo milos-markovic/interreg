@@ -7,7 +7,7 @@
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/fav.ico">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> 
         <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
@@ -18,13 +18,19 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
     <body class="text-gray-900 font-primary antialiased">
-        
-        @include('_partials.header_en')
 
-        @yield('body')
+        <div x-data="{ len: localStorage.getItem('len'), open: false, searchModal: false, shareModal: false, blackBackground: false }" 
+             x-init="$watch('len', (val) => localStorage.setItem('len', val))"
+        >
+            
+            <div :class="blackBackground ? 'transparent' : ''" class="overflow-y-auto" >
+                @include('_partials.header_en')
 
-        @include('_partials.footer_en')
+                @yield('body')
+    
+                @include('_partials.footer_en')
+            </div>
 
-        <script src="/changeLanguage.js"></script>
+        </div>
     </body>
 </html>

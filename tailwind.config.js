@@ -13,6 +13,9 @@ module.exports = {
       screens: {
         'desktop': '1200px',
       },
+      colors: {
+        'gray-primary': "#999999"
+      }
     },
   },
   variants: {

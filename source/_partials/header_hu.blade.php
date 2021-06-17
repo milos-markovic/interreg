@@ -1,5 +1,5 @@
-<header>
-    <div id="mobile nav" x-data="{ open: false }">
+<header x-data="{ searchModal: false, shareModal: false }">
+    <div id="mobile nav" x-data="{ open: false, searchModal: false, shareModal: false }">
 
         <div x-show="open" @click.away="open = false" class="absolute top-0 bg-white w-full z-10">
             <ul>
@@ -67,11 +67,11 @@
                 </div>
 
                 <div id="share">
-                    <a href="">
+                    <a @click.prevent="searchModal = true" href="">
                         <i class="fas fa-search"></i>
                     </a>
 
-                    <a href="" class="ml-5">
+                    <a @click.prevent ="shareModal = true" href="" class="ml-5">
                         <i class="fas fa-share-alt"></i>
                     </a>
                 </div>
@@ -85,6 +85,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- search modal -->
+        @include('_partials.searchModal')
+
+        <!-- share modal -->
+        @include('_partials.shareModal')
     </div>
 
     <div id="desktop nav" class="max-w-screen-desktop mx-auto hidden lg:block px-5 xl:px-0">
@@ -107,21 +113,23 @@
                 </a>
             </div>
 
-            <div id="language" class="flex" style="color: #999;">
-                <a id="en" href="">EN</a>
-                <a id="sr" href="" class="mx-5">SRB</a>
-                <a id="hu" href="" >HU</a>
-            </div>
+            @include('_partials.language')
 
             <div id="share">
-                <a href="">
+                <a @click.prevent="searchModal = true" href="">
                     <i class="fas fa-search fa-lg"></i>
                 </a>
 
-                <a href="" class="ml-5">
+                <a  @click.prevent="shareModal = true" href="" class="ml-5">
                     <i class="fas fa-share-alt fa-lg"></i>
                 </a>
             </div>
+
+                <!-- search modal -->
+            @include('_partials.searchModal')
+
+            <!-- share modal -->
+            @include('_partials.shareModal')
         </div>
 
         <nav id="navigation" style="margin-top: 60px; margin-bottom: 30px;">

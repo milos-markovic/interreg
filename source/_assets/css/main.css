@@ -2,16 +2,21 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+nav a{
+    color: #666666;
+    font-size: 16px;
+}
+
 nav a:hover{
     border-bottom: 3px solid #FFF2BF;
 }
 
 nav a:focus{
-    border-bottom: 3px solid #ffd629;
+    border-bottom: 3px solid #FFF2BF;
 }
 
-nav a:visited{
-    border-bottom: 3px solid #ffd629;
+.transparent {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 #social_icons a:hover{
@@ -37,6 +42,10 @@ nav a:visited{
 
 .selected {
     border-bottom: 3px solid #ffd629;
+    color: black;
+}
+.selected-mob{
+    background: #fff2bf;
 }
 
 

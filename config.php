@@ -7,7 +7,10 @@ return [
     'selected' => function ($page, $section) {
         return Str::contains($page->getPath(), $section) ? 'selected' : '';
     },
-    'title' => 'Jigsaw',
+    'selected-mob' => function ($page, $section) {
+        return Str::contains($page->getPath(), $section) ? 'selected' : '';
+    },
+    'title' => 'Social entrepreneurship for women in rural areas',
     'description' => 'Website description.',
     'collections' => [
         'index' => [
@@ -43,7 +46,7 @@ return [
         'gallery' => [
             'author' => 'Author Name', // Default author, if not provided in a post
             'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'path' => 'gallery/{filename}',
         ],
     ],
 ];
